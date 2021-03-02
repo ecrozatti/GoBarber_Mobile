@@ -30,7 +30,7 @@ export interface Provider {
 
 const Dashboard: React.FC = () => {
   const { signOut, user } = useAuth();
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
   const [providers, setProviders] = useState<Provider[]>([]);
 
   useEffect(() => {
@@ -39,13 +39,14 @@ const Dashboard: React.FC = () => {
     });
   }, []);
 
-  const handleSelectProvider = useCallback(
+  const navigateToProfile = useCallback(() => {
+    navigate('Profile');
+  }, [navigate]);
+
+  const navigateToCreateAppointment = useCallback(
     (providerId: string) => {
-      // navigation.navigate('AppointmentDatePicker', { providerId });
-      navigation.navigate('CreateAppointment', { providerId });
-    },
-    [navigation],
-  );
+      navigate('CreateAppointment', {providerId});
+  },[navigate]);
 
   return (
     <Container>
@@ -55,8 +56,8 @@ const Dashboard: React.FC = () => {
           <UserName>{user.name}</UserName>
         </HeaderTitle>
 
-        {/* <ProfileButton onPress={() => navigation.navigate('Profile')}> */}
-        <ProfileButton onPress={() => signOut()}>
+        <ProfileButton onPress={navigateToProfile}>
+        {/* <ProfileButton onPress={() => signOut()}> */}
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
       </Header>
@@ -68,7 +69,7 @@ const Dashboard: React.FC = () => {
           <ProvidersListTitle>Cabeleireiros</ProvidersListTitle>
         }
         renderItem={({ item: provider }) => (
-          <ProviderContainer onPress={() => handleSelectProvider(provider.id)}>
+          <ProviderContainer onPress={() => navigateToCreateAppointment(provider.id)}>
             {provider.avatar_url ?
               <ProviderAvatar source={{ uri: provider.avatar_url }} />
             :

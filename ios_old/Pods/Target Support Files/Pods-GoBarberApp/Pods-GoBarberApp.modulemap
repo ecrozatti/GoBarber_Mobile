@@ -1,0 +1,6 @@
+module Pods_GoBarberApp {
+  umbrella header "Pods-GoBarberApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
