@@ -31,11 +31,10 @@ O projeto pode ser executado em ambiente Android ou iOS.
 ## :computer: Tecnologias
 Esse projeto foi desenvolvido no Bootcamp GoStack da Rocketseat com as seguintes tecnologias:
 
-- [ReactJS](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [React Native](https://reactnative.dev/)
 - [React Navigation](https://reactnavigation.org/)
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
+- [TypeScript](https://www.typescriptlang.org/)
 - [UnForm](https://unform.dev/)
 - [Yup](https://github.com/jquense/yup)
 - [Styled Components](https://styled-components.com/)
